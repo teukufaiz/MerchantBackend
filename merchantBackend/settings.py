@@ -85,8 +85,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': 'sHDFUQo9nN6Y6X1',
-        'HOST': 'merchantbackend-long-shape-7140-db.flycast',
+        'PASSWORD': 'Q8u4XLutMWXdknZi',
+        'HOST': 'db.aqdqeeakuwtyptmtrhow.supabase.co',
         'PORT': '5432',
     }
 }

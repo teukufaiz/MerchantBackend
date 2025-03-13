@@ -7,14 +7,13 @@ import json
 
 @csrf_exempt
 def create_loan(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        user_id = data.get("user_id")
-        amount = data.get("amount")
-        status = "Diproses"  # Default status saat pengajuan
-        
-        new_loan = loan.objects.create(user_id_id=user_id, amount=amount, status=status)
-        return JsonResponse({"message": "Loan created successfully", "loan_id": new_loan.loan_id}, status=200)
+    data = json.loads(request.body)
+    user_id = data.get("user_id")
+    amount = data.get("amount")
+    status = "Diproses"  # Default status saat pengajuan
+    
+    new_loan = loan.objects.create(user_id_id=user_id, amount=amount, status=status)
+    return JsonResponse({"message": "Loan created successfully", "loan_id": new_loan.loan_id}, status=200)
     
     return JsonResponse({"error": "Invalid request method"}, status=400)
 
