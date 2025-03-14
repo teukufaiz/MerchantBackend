@@ -7,6 +7,7 @@ class loan(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     amount = models.FloatField()
     status = models.CharField(max_length=255)
+    loan_term = models.IntegerField(default=3)
     created_at = models.DateTimeField(auto_now_add=True)
 
 class repayment(models.Model):

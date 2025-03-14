@@ -10,12 +10,11 @@ def create_loan(request):
     data = json.loads(request.body)
     user_id = data.get("user_id")
     amount = data.get("amount")
+    loan_term = data.get("loan_term")
     status = "Diproses"  # Default status saat pengajuan
     
-    new_loan = loan.objects.create(user_id_id=user_id, amount=amount, status=status)
+    new_loan = loan.objects.create(user_id_id=user_id, amount=amount, status=status, loan_term=loan_term)
     return JsonResponse({"message": "Loan created successfully", "loan_id": new_loan.loan_id}, status=200)
-    
-    return JsonResponse({"error": "Invalid request method"}, status=400)
 
 
 def get_loans(request, user_id):
@@ -24,6 +23,7 @@ def get_loans(request, user_id):
         "loan_id": l.loan_id,
         "amount": l.amount,
         "status": l.status,
+        "loan_term": l.loan_term,
         "created_at": l.created_at.strftime("%Y-%m-%d %H:%M:%S")
     } for l in loans]
     return JsonResponse({"loans": loan_list}, safe=False)
